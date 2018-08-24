@@ -1,5 +1,6 @@
 package io.pivotal.dmfrey.eventStoreDemo.endpoint;
 
+import io.pivotal.dmfrey.eventStoreDemo.domain.model.DomainEvents;
 import io.pivotal.dmfrey.eventStoreDemo.domain.service.DomainEventService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.tuple.Tuple;
@@ -37,7 +38,7 @@ public class EventStoreController {
     }
 
     @GetMapping( "/{boardUuid}" )
-    public ResponseEntity domainEvents( @PathVariable( "boardUuid" ) UUID boardUuid ) {
+    public ResponseEntity<DomainEvents> domainEvents( @PathVariable( "boardUuid" ) UUID boardUuid ) {
 
         return ResponseEntity
                 .ok( this.service.getDomainEvents( boardUuid.toString() ) );

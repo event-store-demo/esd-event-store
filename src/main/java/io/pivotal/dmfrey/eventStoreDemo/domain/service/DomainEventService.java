@@ -37,9 +37,9 @@ public class DomainEventService {
     }
 
     public DomainEvents getDomainEvents( final String boardUuid ) {
-        log.debug( "processDomainEvent : enter" );
+        log.debug( "getDomainEvents : enter" );
 
-        log.debug( "processDomainEvent : boardUuid=" + boardUuid );
+        log.debug( "getDomainEvents : boardUuid=" + boardUuid );
 
         return domainEventsRepository.findById( boardUuid )
                 .map( DomainEventsEntity::toModel )
